@@ -1,0 +1,5 @@
+idUser;password;namaUser
+U001;123;Aku
+U002;231;Saya
+U003;312;Gue
+
