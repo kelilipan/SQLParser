@@ -1,0 +1,4 @@
+idLagu;judulLagu;artist;genre;years
+L001;Heartache;One Ok Rock;Alternatif;2015
+L002;Payphone;Maroon5;Pop;2012
+L003;Imagination;Shawn Mende2;Pop;2015
