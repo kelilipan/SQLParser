@@ -5,6 +5,9 @@
  */
 package sqlparser;
 
+import java.io.IOException;
+import java.util.Scanner;
+
 /**
  *
  * @author Anvaqta Tangguh
@@ -14,11 +17,17 @@ public class SQLParser {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        String kata= "SELECT judul, genre, years FROM Lagu;";
-   
-        
+    public static void main(String[] args) throws IOException {
+        Parser data = new Parser();
+        //String statement = "SELECT judulLagu, idUser FROM Lagu JOIN Memutar;";
+        Scanner input = new Scanner(System.in);
+        System.out.print("SQLParser>");
+        String query = input.nextLine();
+        if(data.parse(query)){
+            System.out.println("\nSuccess exit code 0");
+        }else{
+            System.out.println("SQL ERROR.");
+        }
     }
     
 }

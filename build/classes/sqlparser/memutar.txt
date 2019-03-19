@@ -1,0 +1,5 @@
+idLagu;idUser
+L001;U001
+L002;U002
+L003;U003
+
