@@ -210,7 +210,7 @@ public class Parser {
                             else{
                                 primaryKey = checkPrimary(statement[wherePointer+1]);
                                 if (primaryKey == true){
-                                    System.out.println("PRIMARY KEY");
+                                    System.out.println("PRIMARY KEY : "+statement[wherePointer+1]);
                                 }
 //                                System.out.println("WHERE Success");
                             }
