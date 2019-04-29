@@ -26,7 +26,7 @@ public class Parser {
     public List<String> tableMemutar = new ArrayList();
     public String[] tempLagu, tempPengguna, tempMemutar;
     public List<String> col = new ArrayList();
-//    public 
+    public boolean primaryKey = false, colExist = false;
 
     public Parser() throws FileNotFoundException, IOException {
         BufferedReader BR = new BufferedReader(new FileReader("lagu.txt"));
@@ -84,6 +84,21 @@ public class Parser {
         }
         return found;
     }
+    
+    public boolean checkPrimary(String col){
+        boolean found = false;
+        if (tempPengguna[0].toUpperCase().equals(col)){
+            found = true;
+        }
+        if (tempLagu[0].toUpperCase().equals(col)){
+            found = true;
+        }
+        if (tempMemutar[0].toUpperCase().equals(col)){
+            found = true;
+        }
+        return found;
+    }
+    
     public boolean checkColumn(String col, String[] table){
         boolean found=false;
         for (int i = 0; i < table.length; i++) {
@@ -99,6 +114,7 @@ public class Parser {
         String[] statement = query.split(" ");
         String[] selectedTable, selectedTableJoin;
         String lastStat = statement[statement.length - 1];
+        
         for (int i = 0; i < statement.length; i++) {
             statement[i] = statement[i].toUpperCase();
         }
@@ -106,6 +122,8 @@ public class Parser {
             tempLagu = tableLagu.get(0).split(";");
             tempPengguna = tablePengguna.get(0).split(";");
             tempMemutar = tableMemutar.get(0).split(";");
+            
+//            Checking ;
             if (!lastStat.endsWith(";")) {
                 System.out.println("ERROR :  Missing ';' in the end of the statement.");
                 return false;
@@ -113,7 +131,8 @@ public class Parser {
                 statement[statement.length - 1] = lastStat.replace(";", "");
                 int i = 1;
                 int fromPointer = 1;
-                boolean fromExist = false, joinExist = false, usingExist = false;
+                boolean fromExist = false, joinExist = false, usingExist = false, whereExist = false;
+//              Dapetin semua pointer join, from, using, where
                 while (!(statement[fromPointer].equals("FROM") && (fromPointer < statement.length - 1))) {
                     if (statement[fromPointer].endsWith(",")) {
                         statement[fromPointer] = statement[fromPointer].replace(",", "");
@@ -124,22 +143,25 @@ public class Parser {
                 if ((statement[fromPointer].toUpperCase().equals("FROM"))) {
                     fromExist = true;
                 }
+                
                 int joinPointer = 0;
-                while (!(statement[joinPointer].equals("JOIN")) && (joinPointer < statement.length - 1)) {
+                while (!(statement[joinPointer].toUpperCase().equals("JOIN")) && (joinPointer < statement.length - 1)) {
                     joinPointer++;
                 }
                 if ((statement[joinPointer].toUpperCase().equals("JOIN"))) {
                     joinExist = true;
 //                    System.out.println("JOIN FOUND");
                 }
+                
                 int usingPointer = 0;
-                while (!(statement[usingPointer].equals("USING")) && (usingPointer < statement.length - 1)) {
+                while (!(statement[usingPointer].toUpperCase().equals("USING")) && (usingPointer < statement.length - 1)) {
                     usingPointer++;
                 }
                 if ((statement[usingPointer].toUpperCase().equals("USING"))) {
                     usingExist = true;
 //                    System.out.println("USING FOUND");
                 }
+                
                 // Cek apakah JOIN / select Ada di query atau tidak
                 if (!fromExist) {
                     System.out.println("ERROR: Missing statement after FROM");
@@ -168,7 +190,33 @@ public class Parser {
                             System.out.println("");
                         }
                     }
-                    //}
+                    int wherePointer = 0;
+                    while (!(statement[wherePointer].toUpperCase().equals("WHERE")) && (wherePointer < statement.length - 1)){
+                        wherePointer++;
+                    }
+                    if ((statement[wherePointer].toUpperCase().equals("WHERE"))){
+                        whereExist = true;
+                    }
+                    if (whereExist){
+                        if(wherePointer == statement.length - 1){
+                            System.out.println("ERROR : Missing statement after WHERE");
+                            return false;
+                        }
+                        else{
+                            if(!checkColumn(statement[wherePointer+1])){
+                                System.out.println(statement[wherePointer+1] + "ERROR : Argument after WHERE");
+                                return false;
+                            }
+                            else{
+                                primaryKey = checkPrimary(statement[wherePointer+1]);
+                                if (primaryKey == true){
+                                    System.out.println("PRIMARY KEY : "+statement[wherePointer+1]);
+                                }
+//                                System.out.println("WHERE Success");
+                            }
+                        }
+                    }
+                    
                     if (joinExist) {//JIKA ADA JOIN 
                         if (joinExist && joinPointer == statement.length-1) {
                             System.out.println("ERROR: Missing statement after JOIN");
