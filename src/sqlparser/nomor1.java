@@ -60,26 +60,25 @@ public class nomor1 {
         int p = 3, l = 5, m = 2;
         for (int i = 0; p < tempPengguna.length; i++) {
             intPengguna[i] = Integer.parseInt(tempPengguna[p]);
-            System.out.println("PENGGUNA " + intPengguna[i]);
+//            System.out.println("PENGGUNA " + intPengguna[i]);
             p++;
         }
 //        Lagu
         for (int i = 0; l < tempLagu.length; i++) {
             intLagu[i] = Integer.parseInt(tempLagu[l]);
-            System.out.println("LAGU "+intLagu[i]);
+//            System.out.println("LAGU "+intLagu[i]);
             l++;
         }
 //        Memutar
         for (int i = 0; m < tempMemutar.length; i++) {
             intMemutar[i] = Integer.parseInt(tempMemutar[m]);
-            System.out.println("MEMUTAR "+intMemutar[i]);
+//            System.out.println("MEMUTAR "+intMemutar[i]);
             m++;
         }
 //        PdanB
         for (int i = 0; i < tempNomor1.length; i++) {
-            System.out.println(intNomor1[0]);
             intNomor1[i] = Integer.parseInt(tempNomor1[i]);
-            System.out.println("Nomor1" + intNomor1[i]);
+//            System.out.println("Nomor1" + intNomor1[i]);
         }
     }
     
@@ -88,13 +87,13 @@ public class nomor1 {
         
         System.out.println("MENU 1 : BFR dan Fanout Ratio");
         System.out.println("");
-        System.out.println("  BFR Memutar : "+BFR(intNomor1[1],intMemutar[1]));
+        System.out.println("  BFR Memutar : "+BFR(intNomor1[1],intMemutar[0]));
         System.out.println("  Fanout Ratio Memutar : "+fanout(intNomor1[1], intMemutar[2], intNomor1[0]));
 //        System.out.println("");
-        System.out.println("  BFR Pengguna : "+BFR(intNomor1[1],intPengguna[1]));
+        System.out.println("  BFR Pengguna : "+BFR(intNomor1[1],intPengguna[0]));
         System.out.println("  Fanout Ratio Pengguna : "+fanout(intNomor1[1], intPengguna[2], intNomor1[0]));
 //        System.out.println("");
-        System.out.println("  BFR Lagu : "+BFR(intNomor1[1],intLagu[1]));
+        System.out.println("  BFR Lagu : "+BFR(intNomor1[1],intLagu[0]));
         System.out.println("  Fanout Ratio Lagu : "+fanout(intNomor1[1], intLagu[2], intNomor1[0]));
     }
     
@@ -124,5 +123,40 @@ public class nomor1 {
     public int[] getIntNomor1() {
         return intNomor1;
     }
+    
+//    List Table
+    public List<String> getTableLagu() {
+        return tableLagu;
+    }
+
+    public List<String> getTablePengguna() {
+        return tablePengguna;
+    }
+
+    public List<String> getTableMemutar() {
+        return tableMemutar;
+    }
+
+    public List<String> getTabelNomor1() {
+        return tabelNomor1;
+    }
+
+//get table column 
+    public String[] getTempLagu() {
+        return tempLagu;
+    }
+
+    public String[] getTempPengguna() {
+        return tempPengguna;
+    }
+
+    public String[] getTempMemutar() {
+        return tempMemutar;
+    }
+
+    public String[] getTempNomor1() {
+        return tempNomor1;
+    }
+    
     
 }

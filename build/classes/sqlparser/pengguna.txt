@@ -1,4 +1,4 @@
-idUser;password;namaUser;6;100;4
+idUser;password;namaUser;9;8200;10
 U001;123;Aku
 U002;231;Saya
 U003;312;Gue
