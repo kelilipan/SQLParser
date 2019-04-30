@@ -1,4 +1,4 @@
-idLagu;idUser;124;5000;7
+idLagu;idUser;12;7000;7
 L001;U001
 L002;U002
 L003;U003
