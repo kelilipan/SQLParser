@@ -28,6 +28,9 @@ public class SQLParser {
         }else{
             System.out.println("SQL ERROR.");
         }
+        System.out.println("========= Nomor 1 :");
+        nomor1 no1 = new nomor1();
+        no1.menu1();
     }
     
 }

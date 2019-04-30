@@ -40,7 +40,7 @@ public class Parser {
             tableLagu.add(line);
             tablePengguna.add(line2);
             tableMemutar.add(line3);
-            }
+        }
     }
 
     public String[] findTable(String table) {
@@ -58,7 +58,7 @@ public class Parser {
 
     public void printAll(String[] table, String tableName) {
         System.out.println("TABLE : " + tableName.toUpperCase());
-        for (int i = 0; i < table.length; i++) {
+        for (int i = 0; i < table.length-3; i++) {
             System.out.print(table[i].toUpperCase() + " ");
         }
         System.out.println("");
