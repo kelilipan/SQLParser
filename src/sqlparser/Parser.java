@@ -40,7 +40,7 @@ public class Parser {
             tableLagu.add(line);
             tablePengguna.add(line2);
             tableMemutar.add(line3);
-            }
+        }
     }
 
     public String[] findTable(String table) {
@@ -58,7 +58,7 @@ public class Parser {
 
     public void printAll(String[] table, String tableName) {
         System.out.println("TABLE : " + tableName.toUpperCase());
-        for (int i = 0; i < table.length; i++) {
+        for (int i = 0; i < table.length-3; i++) {
             System.out.print(table[i].toUpperCase() + " ");
         }
         System.out.println("");
@@ -203,16 +203,29 @@ public class Parser {
                             return false;
                         }
                         else{
+//                            Check column after where
                             if(!checkColumn(statement[wherePointer+1])){
                                 System.out.println(statement[wherePointer+1] + "ERROR : Argument after WHERE");
                                 return false;
                             }
                             else{
+//                                Check for PK
                                 primaryKey = checkPrimary(statement[wherePointer+1]);
                                 if (primaryKey == true){
                                     System.out.println("PRIMARY KEY : "+statement[wherePointer+1]);
                                 }
+                                
 //                                System.out.println("WHERE Success");
+                                if (statement[wherePointer + 2].equals("=") || statement[wherePointer + 2].equals("LIKE") || statement[wherePointer + 2].equals("<") || statement[wherePointer + 2].equals(">") || statement[wherePointer + 2].equals("!=") || statement[wherePointer + 2].equals("<=") || statement[wherePointer + 2].equals(">=")){
+//                                    System.out.println("Masuk ?");
+                                    if (statement[wherePointer + 3] == ""){
+                                        System.out.println("ERROR : Missing statement after '='");
+                                        return false;
+                                    }
+                                    else{
+//                                        System.out.println("Check column after where success");
+                                    }
+                                }
                             }
                         }
                     }
