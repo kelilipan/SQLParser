@@ -98,11 +98,11 @@ public class nomor1 {
     }
     
     public int BFR(int B, int R){
-        return (B/R);
+        return (int) Math.floor(B/R);
     }
     
     public int fanout(int B, int V, int P){
-        return (B/ (V + P));
+        return (int) Math.floor(B/ (V + P));
     }
   
     

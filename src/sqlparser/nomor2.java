@@ -21,6 +21,7 @@ public class nomor2 {
     public nomor2() throws IOException {
         
         no1 = new nomor1();
+        no1.getNumber();
         intLagu = no1.getIntLagu();
         intPengguna = no1.getIntPengguna();
         intMemutar = no1.getIntMemutar();
@@ -36,7 +37,7 @@ public class nomor2 {
         return (n/fanout);
     }
     
-    public void nomor2(){
+    public void menu2(){
         System.out.println("MENU 2 : Jumlah Block");
         System.out.println("");
         System.out.println("    Tabel Data Lagu : " + blockData(no1.BFR(intNomor2[1],intLagu[0]), intLagu[1]));

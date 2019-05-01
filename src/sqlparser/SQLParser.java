@@ -19,7 +19,7 @@ public class SQLParser {
      */
     public static void main(String[] args) throws IOException {
         Parser data = new Parser();
-        //String statement = "SELECT judulLagu, idUser FROM Lagu JOIN Memutar;";
+        String statement = "SELECT judulLagu, idUser FROM Lagu JOIN Memutar;";
         Scanner input = new Scanner(System.in);
         System.out.print("SQLParser>");
         String query = input.nextLine();
@@ -34,7 +34,10 @@ public class SQLParser {
         System.out.println("");
         System.out.println("========= Nomor 2 =========");
         nomor2 no2 = new nomor2();
-        no2.nomor2();
+        no2.menu2();
+        System.out.println("========= Nomor 3 =========");
+        nomor3 no3 = new nomor3();
+        no3.menu3();
     }
     
 }
