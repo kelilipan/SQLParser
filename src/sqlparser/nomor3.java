@@ -44,8 +44,6 @@ public class nomor3 {
         System.out.print("Nama Tabel : ");
         tabel = inputString.nextLine();
         if (tabel.toUpperCase().equals("MEMUTAR")){
-            System.out.println(x);
-            System.out.println(no1.BFR(intNomor3[1],intMemutar[0]));
             System.out.println("[INDEX] Jumlah blok yang diakses : " + idxBlockData(x,no1.fanout(intNomor3[1], intMemutar[2], intNomor3[0])));
             System.out.println("[NO INDEX] Jumlah Blok yang diakses : " + blockData(x, no1.BFR(intNomor3[1],intMemutar[0])));
         }

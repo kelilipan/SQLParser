@@ -285,4 +285,11 @@ public class Parser {
         }
         return true;
     }
+    
+//    get the column
+
+    public List<String> getCol() {
+        return col;
+    }
+    
 }

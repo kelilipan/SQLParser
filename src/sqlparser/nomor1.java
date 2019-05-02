@@ -17,6 +17,7 @@ import java.util.List;
  * @author ASUS
  */
 public class nomor1 {
+    Parser parse = new Parser();
     //LAGU
     public List<String> tableLagu = new ArrayList<String>();
     //PENGGUNA
