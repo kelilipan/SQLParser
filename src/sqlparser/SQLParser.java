@@ -19,25 +19,34 @@ public class SQLParser {
      */
     public static void main(String[] args) throws IOException {
         Parser data = new Parser();
-        String statement = "SELECT judulLagu, idUser FROM Lagu JOIN Memutar;";
-        Scanner input = new Scanner(System.in);
-        System.out.print("SQLParser>");
-        String query = input.nextLine();
+        String query = "SELECT judulLagu, idUser FROM Lagu  where idLagu = 'Anvaq';";
+//        Scanner input = new Scanner(System.in);
+//        System.out.print("SQLParser>");
+//        String query = input.nextLine();
         if(data.parse(query)){
             System.out.println("\nSuccess exit code 0");
         }else{
             System.out.println("SQL ERROR.");
         }
+        
         System.out.println("========= Nomor 1 =========");
         nomor1 no1 = new nomor1();
         no1.menu1();
         System.out.println("");
+        
         System.out.println("========= Nomor 2 =========");
         nomor2 no2 = new nomor2();
         no2.menu2();
+        System.out.println("");
+        
         System.out.println("========= Nomor 3 =========");
         nomor3 no3 = new nomor3();
         no3.menu3();
+        
+        System.out.println("");
+        System.out.println("========= Nomor 4 =========");
+        nomor4 no4 = new nomor4();
+        no4.printQEP(data.primaryKey, query, data.joinExist);
     }
     
 }

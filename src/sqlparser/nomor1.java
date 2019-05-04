@@ -124,23 +124,6 @@ public class nomor1 {
     public int[] getIntNomor1() {
         return intNomor1;
     }
-    
-//    List Table
-    public List<String> getTableLagu() {
-        return tableLagu;
-    }
-
-    public List<String> getTablePengguna() {
-        return tablePengguna;
-    }
-
-    public List<String> getTableMemutar() {
-        return tableMemutar;
-    }
-
-    public List<String> getTabelNomor1() {
-        return tabelNomor1;
-    }
 
 //get table column 
     public String[] getTempLagu() {

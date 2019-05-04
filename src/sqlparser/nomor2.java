@@ -12,10 +12,10 @@ import java.io.IOException;
  * @author ASUS
  */
 public class nomor2 {
-    public int intLagu[] = new int[3];
-    public int intPengguna[] =  new int[3];
-    public int intMemutar[] = new int[3];
-    public int intNomor2[] = new int[2];
+    private int intLagu[] = new int[3];
+    private int intPengguna[] =  new int[3];
+    private int intMemutar[] = new int[3];
+    private int intNomor2[] = new int[2];
     nomor1 no1;
     
     public nomor2() throws IOException {
@@ -26,7 +26,6 @@ public class nomor2 {
         intPengguna = no1.getIntPengguna();
         intMemutar = no1.getIntMemutar();
         intNomor2 = no1.getIntNomor1();
-        no1.getNumber();
     }
     
     public int blockData(int BFR, int n){
