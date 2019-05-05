@@ -28,6 +28,7 @@ public class nomor4 {
     int fromPointer, joinPointer;
 
     public nomor4() throws IOException {
+        
         no1 = new nomor1();
         no1.getNumber();
         intLagu = no1.getIntLagu();
@@ -38,6 +39,7 @@ public class nomor4 {
         tempMemutar = no1.getTempMemutar();
         tempLagu = no1.getTempLagu();
         tempPengguna = no1.getTempPengguna();
+    
     }
     
     public List getColoumn(String statement){
@@ -121,8 +123,6 @@ public class nomor4 {
     }
     
     public void printQEP(boolean pk, String query, boolean join){
-        
-        System.out.println("MENU 4 : QEP and Cost");
         
         col = getColoumn(query);
         boolean q1 = false;
