@@ -159,7 +159,7 @@ public class Parser {
                 }
                 if ((statement[usingPointer].toUpperCase().equals("USING"))) {
                     usingExist = true;
-                    System.out.println("USING FOUND");
+//                    System.out.println("USING FOUND");
                 }
                 
                 // Cek apakah JOIN / select Ada di query atau tidak

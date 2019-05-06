@@ -125,7 +125,6 @@ public class nomor4 {
     public void printQEP(boolean pk, String query, boolean join){
         
         col = getColoumn(query);
-        boolean q1 = false;
         int cost1 = 0, cost2 = 0;
         int blockMemutar = no2.blockData(no1.BFR(intNomor4[1],intMemutar[0]), intMemutar[1]);
         int blockLagu = no2.blockData(no1.BFR(intNomor4[1],intLagu[0]), intLagu[1]);
@@ -135,15 +134,15 @@ public class nomor4 {
             
             if (printTable(query).toUpperCase().equals("MEMUTAR")){
                 cost1 = blockMemutar / 2;
-                cost2 = 1 + (int) (Math.log(no2.blockData(no1.BFR(intNomor4[1],intMemutar[0]), intMemutar[1])) / Math.log(no1.fanout(intNomor4[1], intMemutar[2], intNomor4[0])));
+                cost2 = 1 + (int) (Math.log(blockMemutar) / Math.log(no1.fanout(intNomor4[1], intMemutar[2], intNomor4[0])));
             }
             else if (printTable(query).toUpperCase().equals("LAGU")){
                 cost1 = blockLagu / 2;
-                cost2 = 1 + (int) (Math.log(no2.blockData(no1.BFR(intNomor4[1],intLagu[0]), intLagu[1])) / Math.log(no1.fanout(intNomor4[1], intLagu[2], intNomor4[0])));
+                cost2 = 1 + (int) (Math.log(blockLagu) / Math.log(no1.fanout(intNomor4[1], intLagu[2], intNomor4[0])));
             }
             else if (printTable(query).toUpperCase().equals("PENGGUNA")){
                 cost1 = blockPengguna / 2;
-                cost2 = 1 + (int) (Math.log(no2.blockData(no1.BFR(intNomor4[1],intPengguna[0]), intPengguna[1])) / Math.log(no1.fanout(intNomor4[1], intPengguna[2], intNomor4[0])));
+                cost2 = 1 + (int) (Math.log(blockPengguna) / Math.log(no1.fanout(intNomor4[1], intPengguna[2], intNomor4[0])));
             }
             else{
                 System.out.println("Undefined Table Name");
