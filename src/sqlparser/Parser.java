@@ -26,7 +26,7 @@ public class Parser {
     public List<String> tableMemutar = new ArrayList();
     public String[] tempLagu, tempPengguna, tempMemutar;
     public List<String> col = new ArrayList();
-    public boolean primaryKey = false, colExist = false;
+    public boolean primaryKey = false, colExist = false, joinExist = false;
 
     public Parser() throws FileNotFoundException, IOException {
         BufferedReader BR = new BufferedReader(new FileReader("lagu.txt"));
@@ -131,7 +131,7 @@ public class Parser {
                 statement[statement.length - 1] = lastStat.replace(";", "");
                 int i = 1;
                 int fromPointer = 1;
-                boolean fromExist = false, joinExist = false, usingExist = false, whereExist = false;
+                boolean fromExist = false, usingExist = false, whereExist = false;
 //              Dapetin semua pointer join, from, using, where
                 while (!(statement[fromPointer].equals("FROM") && (fromPointer < statement.length - 1))) {
                     if (statement[fromPointer].endsWith(",")) {
@@ -284,5 +284,19 @@ public class Parser {
             return false;
         }
         return true;
+    }
+    
+//    get the column
+
+    public boolean isPrimaryKey() {
+        return primaryKey;
+    }
+    
+    public List<String> getCol() {
+        return col;
+    }
+
+    public boolean isJoinExist() {
+        return joinExist;
     }
 }

@@ -12,20 +12,20 @@ import java.io.IOException;
  * @author ASUS
  */
 public class nomor2 {
-    public int intLagu[] = new int[3];
-    public int intPengguna[] =  new int[3];
-    public int intMemutar[] = new int[3];
-    public int intNomor2[] = new int[2];
+    private int intLagu[] = new int[3];
+    private int intPengguna[] =  new int[3];
+    private int intMemutar[] = new int[3];
+    private int intNomor2[] = new int[2];
     nomor1 no1;
     
     public nomor2() throws IOException {
         
         no1 = new nomor1();
+        no1.getNumber();
         intLagu = no1.getIntLagu();
         intPengguna = no1.getIntPengguna();
         intMemutar = no1.getIntMemutar();
         intNomor2 = no1.getIntNomor1();
-        no1.getNumber();
     }
     
     public int blockData(int BFR, int n){
@@ -36,7 +36,7 @@ public class nomor2 {
         return (n/fanout);
     }
     
-    public void nomor2(){
+    public void menu2(){
         System.out.println("MENU 2 : Jumlah Block");
         System.out.println("");
         System.out.println("    Tabel Data Lagu : " + blockData(no1.BFR(intNomor2[1],intLagu[0]), intLagu[1]));
